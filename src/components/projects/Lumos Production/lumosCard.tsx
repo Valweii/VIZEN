@@ -210,7 +210,10 @@ export default function LumosCard({ onClick, isActive, onClose }: LumosCardProps
                 <div ref={contentRef} className="pointer-events-none w-full h-full">
                     {/* Image shifted UP exactly by 25px so that Y:25 translates it perfectly to the center natively */}
                     <div className="absolute inset-0 w-full h-full flex items-center justify-center -translate-y-[10%]">
-                        <img src="/src/assets/Lumos/lumos.svg" alt="Lumos" className="md:w-32 md:h-32 w-16 h-16 text-black" />
+                        <svg className="w-16 h-16 md:w-32 md:h-32" viewBox="0 0 416 387" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M415.5 92.877V261.633L308.5 223.133C302.1 221.133 301.167 216.299 301.5 214.133V140.633C301.1 135.033 305.667 131.966 308 131.133L415.5 92.877Z" fill="currentColor"/>
+                            <path d="M129.294 0.228516L235.794 77.7285L236.197 78.0225L235.905 78.4258L204.405 121.926L204.11 122.333L203.705 122.036L131.517 69.2637L55 131.371V256.633H107V216.126C107.168 203.956 111.267 185.254 123.017 168.632C134.778 151.992 154.193 137.455 184.938 133.637L184.969 133.633H283V311.633H161V347.169L160.995 347.204C159.982 354.213 156.089 364.543 147.701 372.826C139.297 381.125 126.406 387.341 107.468 386.132L107 386.102V311.633H0V106.834L0.161133 106.685L1.16113 105.765L1.1709 105.756L1.18164 105.748L128.682 0.248047L128.98 0L129.294 0.228516ZM188.51 186.633C184.064 186.547 177.323 188.209 171.498 192.933C165.656 197.67 160.759 205.469 160.001 217.602L160 217.617V257.633H229V186.633H188.51Z" fill="currentColor"/>
+                         </svg>
                     </div>
                 </div>
 
