@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Birthstone';
+  src: url('./assets/fonts/Birthstone/Birthstone-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MuseoModerno';
+  src: url('./assets/fonts/MuseoModerno/MuseoModerno-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Crimson Text';
+  src: url('./assets/fonts/Crimson_Text/CrimsonText-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --font-birthstone: "Birthstone", cursive;
+  --font-museo: "MuseoModerno", sans-serif;
+  --font-crimson: "Crimson Text", serif;
+}
+
+* {
+  scrollbar-width: none;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+}
+
+h1 {
+  font-style: bold;
+}
+
+
+
