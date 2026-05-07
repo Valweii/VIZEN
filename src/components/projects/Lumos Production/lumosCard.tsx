@@ -1,4 +1,4 @@
-import LumosIcon from "../../../assets/Lumos/lumos.svg?react";
+// import LumosIcon from "../../../assets/Lumos/lumos.svg?react";
 import { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
