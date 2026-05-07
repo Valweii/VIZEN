@@ -117,7 +117,7 @@ export default function LumosCard({ onClick, isActive, onClose }: LumosCardProps
             // Mobile: display "active" state by default
             gsap.set(content, { y: 20 });
             gsap.set(titleContainer, { y: 0 });
-            gsap.set(chars, { opacity: 1, y: 0, rotateX: 0 });
+            gsap.set(chars, { opacity: 0, y: 0, rotateX: 0 });
             gsap.set(year, { opacity: 1, yPercent: 0 });
         });
 

@@ -213,8 +213,8 @@ export default function Home() {
         </button>
       </div>
 
-      {/* Main 5-column, 3-row grid (desktop) | 1-column single grid (mobile) */}
-      <div ref={gridRef} className="grid-cols-2 md:grid-cols-5 md:grid-rows-3 grid h-full w-full mt-20 md:pt-0">
+      {/* Main 5-column, 3-row grid (desktop) | 2-column, 8-row grid (mobile) */}
+      <div ref={gridRef} className="grid-cols-2 grid-rows-[8] md:grid-cols-5 md:grid-rows-3 grid h-[calc(100dvh-88px)] md:h-full w-full mt-[88px] md:mt-0 md:pt-0">
         <AboutCard character="V" onClick={handleAboutClick} />
         <div className="border border-gray-100"></div>
         <AboutCard character="I" onClick={handleAboutClick} />
