@@ -9,6 +9,7 @@ import Logo from "../../assets/logo.svg?react";
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
   const aboutRef = useRef<HTMLDivElement>(null);
   const lumosRef = useRef<HTMLDivElement>(null);
   const tlRef = useRef<gsap.core.Timeline | null>(null);
@@ -31,6 +32,7 @@ export default function Home() {
 
     const grid = gridRef.current;
     const about = aboutRef.current;
+    const header = headerRef.current;
     if (!grid || !about) return;
 
     const isMobile = window.innerWidth < 768;
@@ -43,7 +45,17 @@ export default function Home() {
       x: -shiftAmount,
       duration: 0.8,
       ease: "power3.inOut",
-    }).fromTo(
+    })
+
+    if (header) {
+      tl.to(header, {
+        x: -shiftAmount,
+        duration: 0.8,
+        ease: "power3.inOut",
+      }, 0);
+    }
+    
+    tl.fromTo(
       about,
       { x: shiftAmount },
       {
@@ -61,6 +73,7 @@ export default function Home() {
 
     const grid = gridRef.current;
     const about = aboutRef.current;
+    const header = headerRef.current;
     if (!grid || !about) return;
 
     const isMobile = window.innerWidth < 768;
@@ -73,7 +86,17 @@ export default function Home() {
       x: 0,
       duration: 0.8,
       ease: "power3.inOut",
-    }).to(
+    })
+
+    if (header) {
+      tl.to(header, {
+        x: 0,
+        duration: 0.8,
+        ease: "power3.inOut",
+      }, 0);
+    }
+    
+    tl.to(
       about,
       {
         x: shiftAmount,
@@ -93,6 +116,7 @@ export default function Home() {
 
     const grid = gridRef.current;
     const lumos = lumosRef.current;
+    const header = headerRef.current;
     if (!grid || !lumos) return;
 
     // Shift down by 66.6vh (LumosSection height)
@@ -105,7 +129,17 @@ export default function Home() {
       y: shiftAmountY,
       duration: 0.8,
       ease: "power3.inOut",
-    }).fromTo(
+    }, 0);
+
+    if (header) {
+      tl.to(header, {
+        y: shiftAmountY,
+        duration: 0.8,
+        ease: "power3.inOut",
+      }, 0);
+    }
+
+    tl.fromTo(
       lumos,
       { y: -shiftAmountY },
       {
@@ -123,6 +157,7 @@ export default function Home() {
 
     const grid = gridRef.current;
     const lumos = lumosRef.current;
+    const header = headerRef.current;
     if (!grid || !lumos) return;
 
     const shiftAmountY = window.innerHeight * 0.666;
@@ -134,7 +169,17 @@ export default function Home() {
       y: 0,
       duration: 0.8,
       ease: "power3.inOut",
-    }).to(
+    }, 0);
+
+    if (header) {
+      tl.to(header, {
+        y: 0,
+        duration: 0.8,
+        ease: "power3.inOut",
+      }, 0);
+    }
+
+    tl.to(
       lumos,
       {
         y: -shiftAmountY,
@@ -155,7 +200,7 @@ export default function Home() {
       className="relative h-screen w-screen overflow-hidden"
     >
       {/* Mobile Header */}
-      <div className="md:hidden absolute top-0 left-0 w-full flex justify-between items-center z-40 bg-white border-b border-gray-100">
+      <div ref={headerRef} className="md:hidden absolute top-0 left-0 w-full flex justify-between items-center z-40 bg-white border-b border-gray-100">
         <Logo className="w-10 h-10 ml-6 object-contain text-black" />
         <button onClick={handleAboutClick} className="h-full p-8 bg-[#CCFF00]">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-file-text">
@@ -168,8 +213,8 @@ export default function Home() {
         </button>
       </div>
 
-      {/* Main 5-column, 3-row grid (desktop) | 1-column single grid (mobile) */}
-      <div ref={gridRef} className="grid-cols-2 md:grid-cols-5 md:grid-rows-3 grid h-full w-full pt-20 md:pt-0">
+      {/* Main 5-column, 3-row grid (desktop) | 2-column, 8-row grid (mobile) */}
+      <div ref={gridRef} className="grid-cols-2 grid-rows-[8] md:grid-cols-5 md:grid-rows-3 grid h-[calc(100dvh-88px)] md:h-full w-full mt-[88px] md:mt-0 md:pt-0">
         <AboutCard character="V" onClick={handleAboutClick} />
         <div className="border border-gray-100"></div>
         <AboutCard character="I" onClick={handleAboutClick} />
