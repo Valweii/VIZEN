@@ -48,13 +48,25 @@ export default function LumosSection({
     // scrollWidth of the "original" half = total scrollWidth / 2.
     const handleScroll = () => {
       const halfScroll = el.scrollWidth / 2;
+      const halfVerticalScroll = el.scrollHeight / 2;
+      const isDesktop = window.innerWidth > 768;
 
-      if (el.scrollLeft >= halfScroll) {
-        // Scrolled past all originals → jump back to start
-        el.scrollLeft -= halfScroll;
-      } else if (el.scrollLeft <= 0) {
-        // Scrolled before beginning → jump to end of originals
-        el.scrollLeft += halfScroll;
+      if (isDesktop) {
+        if (el.scrollLeft >= halfScroll) {
+          // Scrolled past all originals → jump back to start
+          el.scrollLeft -= halfScroll;
+        } else if (el.scrollLeft <= 0) {
+          // Scrolled before beginning → jump to end of originals
+          el.scrollLeft += halfScroll;
+        }
+      } else {
+        if (el.scrollTop >= halfVerticalScroll) {
+          // Scrolled past all originals → jump back to start
+          el.scrollTop -= halfVerticalScroll;
+        } else if (el.scrollTop <= 0) {
+          // Scrolled before beginning → jump to end of originals
+          el.scrollTop += halfVerticalScroll;
+        }
       }
     };
 
@@ -173,7 +185,7 @@ export default function LumosSection({
           ref={scrollRef}
           className="w-full md:w-14/15 h-full bg-gray-300 md:py-4 overflow-x-auto"
         >
-            <div className="h-full w-full justify-center md:justify-start items-center whitespace-nowrap flex flex-col md:flex-row gap-6 translate-x-6">
+            <div className="h-full w-full justify-center md:justify-start items-center whitespace-nowrap flex flex-col md:flex-row gap-6 md:translate-x-6">
               {/* Original cards */}
               {cards.map((card, i) => (
                 <ContentCard key={`orig-${i}`} color={card.color} cldVideo={card.video}/>
